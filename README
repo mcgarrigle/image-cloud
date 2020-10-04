@@ -1,0 +1,14 @@
+Build definition for cloud images
+---------------------------------
+
+Cloud 7
+
+- cloud7.ks     kickstart build from CentOS-7-x86_64-Everything-2003.iso
+- cloud7.yaml   cloud catalog definition
+- cloud.yaml    cloud image build
+
+To resize root disk
+-------------------
+
+growpart /dev/vda 1
+xfs_growfs /
