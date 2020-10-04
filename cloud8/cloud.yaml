@@ -1,0 +1,15 @@
+version: '1'
+
+project: image
+
+guests:
+  cloud8:
+    hostname: cloud8.local
+    location: cloud8
+    args: 'console=ttyS0 ip=dhcp inst.text inst.ks=http://pi4.mac.wales/cloud8.ks'
+    cores: 1
+    memory: 2048
+    disks:
+      vda: 3G
+    interfaces:
+      eth0: 'network=default'
