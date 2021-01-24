@@ -1,0 +1,15 @@
+version: '1'
+
+project: image
+
+guests:
+  server1:
+    hostname: server1.local
+    location: ubuntu-server
+    args: 'console=ttyS0 ip=dhcp autoinstall ds=nocloud-net;s=http://pi4.mac.wales/'
+    cores: 1
+    memory: 2048
+    disks:
+      vda: 50G
+    interfaces:
+      eth0: 'network=default'

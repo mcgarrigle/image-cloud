@@ -1,0 +1,24 @@
+#!/bin/bash
+
+base='http://pi4.mac.wales/ubuntu'
+
+name="$1"
+disk="/var/lib/libvirt/filesystems/${name}.qcow2c"
+
+qemu-img create ${disk} 55G
+
+virt-install \
+  --virt-type kvm \
+  --name "${name}" \
+  --location /var/lib/libvirt/images/ubuntu-20.04.1-live-server-amd64.iso \
+  --memory 4096 \
+  --vcpus 1 \
+  --disk ${disk},device=disk \
+  --os-type Linux \
+  --os-variant centos7.0 \
+  --network network=default \
+  --extra-args='console=ttyS0 ip=dhcp autoinstall ds=nocloud-net;s=http://pi4.mac.wales/' \
+  --graphics none 
+
+#  --boot kernel="${base}/casper/vmlinux",initrd="${base}/casper/initrd" \
+#  --noautoconsole
