@@ -41,6 +41,7 @@ bash-completion
 wget
 vim
 git
+cloud-init
 cloud-utils-growpart
 @Core
 %end

@@ -1,4 +1,4 @@
-url --url http://pi4.mac.wales/centos8
+cdrom
 install
 
 lang en
@@ -7,7 +7,7 @@ skipx
 
 # -----------------------------------------------
 
-network --hostname=node.local
+network --hostname=node
 network --device=eth0 --noipv6 --bootproto=dhcp
 
 # -----------------------------------------------
@@ -34,13 +34,13 @@ text
 reboot
 
 %packages --ignoremissing
-yum
-yum-utils
+dnf
 dhclient
 bash-completion
 wget
 vim
 git
+cloud-init
 cloud-utils-growpart
 @Core
 %end

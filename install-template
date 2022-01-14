@@ -1,3 +1,3 @@
 NAME=$1
-cp ${NAME}$/{NAME}.yaml /opt/cloud/catalog
+cp ${NAME}/${NAME}.yaml /opt/cloud/catalog
 cp /var/lib/libvirt/filesystems/image-${NAME}_vda.qcow2 /var/lib/libvirt/images/${NAME}.qcow2

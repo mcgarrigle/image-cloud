@@ -1,15 +1,17 @@
-version: '1'
+version: '3'
 
 project: image
 
 guests:
   cloud8:
     hostname: cloud8.local
-    location: cloud8
+    os: cloud8
+    initialise: install
     args: 'console=ttyS0 ip=dhcp inst.text inst.ks=http://pi4.mac.wales/cloud8.ks'
     cores: 1
     memory: 2048
     disks:
       vda: 3G
     interfaces:
-      eth0: 'network=default'
+      enp0s3: 
+        connection: 'network=default'

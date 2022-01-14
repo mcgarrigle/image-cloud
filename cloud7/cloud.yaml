@@ -1,15 +1,17 @@
-version: '1'
+version: '3'
 
 project: image
 
 guests:
   cloud7:
     hostname: cloud7.local
-    location: cloud7
-    args: 'console=ttyS0 ip=dhcp inst.text inst.ks=http://pi4.mac.wales/cloud.ks'
+    os: centos7
+    initialise: install
+    args: 'console=ttyS0 ip=dhcp inst.text inst.ks=http://pi4.mac.wales/cloud7.ks'
     cores: 1
     memory: 2048
     disks:
       vda: 3G
     interfaces:
-      eth0: 'network=default'
+      eth0: 
+        connection: 'network=default'
